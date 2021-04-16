@@ -10,10 +10,10 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 
-    <script src="js/buffer_loader.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/crossfade.js"></script>
-    <script src="js/main.js"></script>
+
+
+    <!-- DJ Set CSS -->
+    <link href="css/dj_set.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"
@@ -46,6 +46,7 @@
                 font-size: 3.5rem;
             }
         }
+
     </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
@@ -71,7 +72,7 @@
             <br>
             <input type="button" onclick="DJ_Set.toggle_track_01();" value="Play/Pause Track_01">
             <br>
-            Volume: <input type="range" min="0" max="100" value="100" oninput="DJ_Set.changeVolume_01(this);">
+            Volume: <input type="range" class="vertical_slider" id="volume_slider_01" min="0" max="100" value="100" oninput="DJ_Set.changeVolume_01(this);">
             <br>
             <br>
             <input type="button" onclick="DJ_Set.toggle_track_02();" value="Play/Pause Track_02">
@@ -81,9 +82,110 @@
             <br>
             Crossfade
             <br>
-            Track_01 <input type="range" min="0" max="100" value="100" oninput="DJ_Set.crossfade(this);"> Track_02
+            Track_01 <input type="range" min="0" max="100" value="50" oninput="DJ_Set.crossfade(this);"> Track_02
 
             <!-- <p class="lead">Check out a preview of the track</p> -->
+
+            <div id="dj_set_container">
+                <!-- <img id="dj_set_svg" src="assets/dj_set.svg" alt="DJ Set"> -->
+
+                <svg version="1.0" id="dj_set_svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 1000 322" xml:space="preserve">
+                    <style>
+                      .st0{fill:#595959}.st2{fill:#fff;stroke:#000;stroke-width:4;stroke-miterlimit:10}.st3{fill:#232323}.st4{fill:#ff5050}.st5{fill:#a0a0a0}.st6{fill:#009245}.st7{fill:#39b54a}.st8{fill:#fff;stroke:#000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10}.st9{fill:#02c6c1}.st10{fill:#0ff}
+                    </style>
+                    <path class="st0" d="M0 22h1000v300H0z"/>
+                    <path fill="#666" d="M0 22h1000v287H0z"/>
+                    <path class="st2" d="M346 309V22M654 22v287"/>
+                    <path class="st0" d="M734 0h186v73H734z"/>
+                    <path transform="rotate(-180 173 36.5)" class="st0" d="M80 0h186v73H80z"/>
+                    <circle class="st3" cx="827" cy="191" r="111"/>
+                    <circle class="st4" cx="827" cy="191" r="42"/>
+                    <circle class="st5" cx="827" cy="191" r="5"/>
+                    <circle class="st3" cx="173" cy="191" r="111"/>
+                    <circle class="st4" cx="173" cy="191" r="42"/>
+                    <circle class="st5" cx="173" cy="191" r="5"/>
+                    <path class="st6" d="M61.33 265l-.33-8-40.67-15.67v47.34z"/>
+                    <path id="play_track_01" class="st7" d="M61.33 257l-41-23.67v47.34z" onclick="DJ_Set.toggle_track_01();"/>
+                    <animate 
+                        xlink:href="#play_track_01"
+                        attributeName="d"
+                        from="M61.33 257l-41-23.67v47.34z"
+                        to="M61.33 259l-41-23.67v47.34z" 
+                        dur="0.2s"
+                        begin="click"
+                        values="M61.33 257l-41-23.67v47.34z; M61.33 261l-41-23.67v47.34z; M61.33 257l-41-23.67v47.34z"
+                        fill="freeze" />
+
+                    <path class="st6" d="M980.33 265l-.33-8-40.67-15.67v47.34z"/>
+                    <path id="play_track_02" class="st7" d="M980.33 257l-41-23.67v47.34z" onclick="DJ_Set.toggle_track_02();"/>
+                    <animate 
+                        xlink:href="#play_track_02"
+                        attributeName="d"
+                        from="M980.33 257l-41-23.67v47.34z"
+                        to="M980.33 259l-41-23.67v47.34z" 
+                        dur="0.2s"
+                        begin="click"
+                        values="M980.33 257l-41-23.67v47.34z; M980.33 259l-41-23.67v47.34z; M980.33 257l-41-23.67v47.34z"
+                        fill="freeze" />
+
+                    
+
+                    <path class="st9" d="M366 156.42h55.17v55.17H366zM578.83 156.42H634v55.17h-55.17zM507.89 156.42h55.17v55.17h-55.17z"/>
+                    <path class="st10" d="M366 146.42h55.17v55.17H366zM578.83 146.42H634v55.17h-55.17zM507.89 146.42h55.17v55.17h-55.17z"/>
+
+                    <path class="st9" d="M366 156.42h55.17v55.17H366zM578.83 156.42H634v55.17h-55.17zM507.89 156.42h55.17v55.17h-55.17z"/>
+                    <path class="st10" d="M366 146.42h55.17v55.17H366zM578.83 146.42H634v55.17h-55.17zM507.89 146.42h55.17v55.17h-55.17z"/>
+                    
+                    <path class="st9" d="M436.94 156.42h55.17v55.17h-55.17z"/>
+                    <path class="st10" d="M436.94 146.42h55.17v55.17h-55.17z"/>
+
+                    <path d="M366.02 110.85c.18 8.37 5.07 15.15 11.03 15.15h115.67c5.97 0 10.86-6.78 11.03-15.15.02-12.87.99-23.56-17.01-23.12-2.7.07-5.26.89-7.53 2.48-2.81-21.32-16.04-37.46-31.95-37.46-11.98 0-22.43 9.16-28.07 22.78-2.99-1.98-6.33-3.1-9.85-3.1-8.73 0-16.33 6.8-20.29 16.86-1.87-1-11.1-1.55-13.22-1.55-9.17-.01-9.46 10.26-9.81 23.11z" fill="#ff5b00"/>
+                    <path id="soundcloud_btn" d="M366.02 102.11c.18 8.37 5.07 15.15 11.03 15.15h115.67c5.97 0 10.86-6.78 11.03-15.15-.35-12.85-7.83-23.12-17.01-23.12-2.7 0-5.26.89-7.53 2.48C476.41 60.14 463.18 44 447.27 44c-11.98 0-22.43 9.16-28.07 22.78-2.99-1.98-6.33-3.1-9.85-3.1-8.73 0-16.33 6.8-20.29 16.86-1.87-1-3.9-1.55-6.02-1.55-9.19 0-16.67 10.27-17.02 23.12z" fill="#ff8100"/>
+                    <path d="M598 52h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V64c0-6.6-5.4-12-12-12z" fill="#008091"/>
+                    <path id="linkenin_btn" d="M598 44h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V56c0-6.6-5.4-12-12-12z" fill="#009cb9"/>
+                    <path id="screen_01" transform="rotate(-180 173 36.5)" class="st3" d="M86 5h174v63H86z"/>
+                    <path id="screen_02" transform="rotate(-180 827 36.5)" class="st3" d="M740 5h174v63H740z"/>
+
+                    <!-- Crossfade Slider -->
+                    <rect id="crossfade_bar"
+                        width="26%" height="3%" 
+                        x="37%" y="80%"
+                    />
+                    <rect id="crossfade_btn"
+                        class="slidable"
+                        width="4%" height="9%" 
+                        x="48%" y="77%"
+                        stroke="#666" 
+                    />
+
+                    <!-- Volume Slider 01 -->
+                    <rect id="slider_bar_01"
+                        width="1%" height="66%" 
+                        x="31%" y="22%"
+
+                    />
+                    <rect id="slider_btn_01"
+                        class="slidable"
+                        width="3%" height="12%" 
+                        x="30%" y="38%"
+                        stroke="#666" 
+                    />
+
+                    <!-- Volume Slider 02 -->
+                    <rect id="slider_bar_02"
+                        width="1%" height="66%" 
+                        x="68%" y="22%"
+                    />
+                    <rect id="slider_btn_02"
+                        class="slidable"
+                        width="3%" height="12%" 
+                        x="67%" y="38%"
+                        stroke="#666" 
+                    />
+                  </svg>
+                  
+
+            </div>
 
             <p class="lead">
                 <!-- <a href="#" class="btn btn-lg btn-secondary">Learn more</a> -->
@@ -96,6 +198,11 @@
             </div>
         </footer>
     </div>
+
+<script src="js/buffer_loader.js"></script>
+<script src="js/init.js"></script>
+<!-- <script src="js/crossfade.js"></script> -->
+<script src="js/main.js"></script>
 </body>
 
 </html>
