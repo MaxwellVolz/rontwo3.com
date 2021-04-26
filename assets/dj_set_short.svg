@@ -1,0 +1,38 @@
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="1024" height="332" xml:space="preserve">
+  <style>
+    .st0{fill:#595959}.st2{fill:none;stroke:#000;stroke-width:4;stroke-miterlimit:10}.st3{fill:#232323}.st4{fill:#ff5050}.st5{fill:#a0a0a0}.st6{fill:#009245}.st7{fill:#39b54a}.st8{fill:none;stroke:#000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10}.st9{fill:#02c6c1}.st10{fill:#0ff}
+  </style>
+  <g id="Layer_1_1_">
+    <path class="st0" d="M12 33h1000v300H12z"/>
+    <path fill="#666" d="M12 33h1000v287H12z"/>
+    <path class="st2" d="M358 320V33M666 33v287"/>
+    <path class="st0" d="M746 11h186v73H746zM92 11h186v73H92z"/>
+    <circle class="st3" cx="839" cy="202" r="111"/>
+    <circle class="st4" cx="839" cy="202" r="42"/>
+    <circle class="st5" cx="839" cy="202" r="5"/>
+    <circle class="st3" cx="185" cy="202" r="111"/>
+    <circle class="st4" cx="185" cy="202" r="42"/>
+    <circle class="st5" cx="185" cy="202" r="5"/>
+    <path class="st6" d="M73.33 276l-.33-8-40.67-15.67v47.34z"/>
+    <path class="st7" d="M73.33 268l-41-23.67v47.34z"/>
+    <path class="st6" d="M992.33 276l-.33-8-40.67-15.67v47.34z"/>
+    <path class="st7" d="M992.33 268l-41-23.67v47.34z"/>
+    <path class="st8" d="M328 288V104M696 288V104"/>
+    <path class="st3" d="M306 185h44v22h-44z"/>
+    <path class="st8" d="M382 292h260"/>
+    <path class="st3" d="M501 270h22v44h-22zM675 185h44v22h-44z"/>
+    <path class="st9" d="M378 167.42h55.17v55.17H378zM590.83 167.42H646v55.17h-55.17zM519.89 167.42h55.17v55.17h-55.17z"/>
+    <path class="st10" d="M378 157.42h55.17v55.17H378zM590.83 157.42H646v55.17h-55.17zM519.89 157.42h55.17v55.17h-55.17z"/>
+    <path class="st9" d="M448.94 167.42h55.17v55.17h-55.17z"/>
+    <path class="st10" d="M448.94 157.42h55.17v55.17h-55.17z"/>
+    <g>
+      <path d="M378.02 121.85c.18 8.37 5.07 15.15 11.03 15.15h115.67c5.97 0 10.86-6.78 11.03-15.15.02-12.87 1.92-3.35-15.58-8.18-2.7.07-111.66 1.06-113.78 1.06-8.78 5.33-8.02-5.73-8.37 7.12z" fill="#ff5b00"/>
+    </g>
+    <g>
+      <path d="M378.02 113.11c.18 8.37 5.07 15.15 11.03 15.15h115.67c5.97 0 10.86-6.78 11.03-15.15-.35-12.85-7.83-23.12-17.01-23.12-2.7 0-5.26.89-7.53 2.48-2.81-21.32-16.04-37.46-31.95-37.46-11.98 0-22.43 9.16-28.07 22.78-2.99-1.98-6.33-3.1-9.85-3.1-8.73 0-16.33 6.8-20.29 16.86-1.87-1-3.9-1.55-6.02-1.55-9.18-.01-16.66 10.26-17.01 23.11z" fill="#ff8100"/>
+    </g>
+    <path d="M610 63h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V75c0-6.6-5.4-12-12-12z" fill="#008091"/>
+    <path d="M610 55h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V67c0-6.6-5.4-12-12-12z" fill="#009cb9"/>
+    <path class="st3" d="M98 16h174v63H98zM752 16h174v63H752z"/>
+  </g>
+</svg>

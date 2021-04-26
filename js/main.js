@@ -1,3 +1,12 @@
+window.addEventListener('load', (event) => {
+    console.log('page is fully loaded');
+    DJ_Set.init()
+    DJ_Set.sliders()
+  });
+
+window.onresize = function(){
+    DJ_Set.sliders()
+}
 
 var DJ_Set = {
     is_on: false,
@@ -152,133 +161,138 @@ function createSource(buffer) {
 
 // var svg   = document.getElementsByTagName('svg')[0];
 // var svg   = document.querySelector('#dj_set_svg');
-var svg   = document.getElementById("dj_set_svg");
 
-var pt    =  svg.createSVGPoint();
+DJ_Set.sliders = function () {
+    console.log('hello')
 
-function mx(evt){
-        pt.x = evt.clientX;
+    var svg   = document.getElementById("dj_set_svg");
+
+    var pt    =  svg.createSVGPoint();
+
+    function mx(evt){
+            pt.x = evt.clientX;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    function my(evt){
+        pt.y = evt.clientY;
         return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    // HTML elements
+    var slider_1  = document.querySelector('#crossfade_btn');
+    var volume_slider_1  = document.querySelector('#slider_btn_01');
+    var volume_slider_2  = document.querySelector('#slider_btn_02');
+
+    var dragging = false;
+    slider_1.addEventListener('mousedown',function(evt){
+
+        cWidth = svg.clientWidth
+
+        // console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
+        lower_limit = (cWidth*0.33).toFixed(1)
+        upper_limit = (cWidth*0.53).toFixed(1)
+
+        var offset = mx(evt);
+        dragging = true;
+        offset.x = slider_1.x.baseVal.value - offset.x;
+        var move = function(evt){
+                var now = mx(evt);
+                var x = offset.x + now.x;
+
+                var limitLower = lower_limit;
+                var limitUpper = upper_limit;
+                if ( x < limitLower || x > limitUpper ) {
+                    return;
+                }           
+
+                crossfade_value = ((x - lower_limit) / (upper_limit - lower_limit)).toFixed(2)
+                DJ_Set.crossfade_val(crossfade_value)
+                slider_1.x.baseVal.value = x;
+        };
+
+        svg.addEventListener('mousemove',move,false);                
+        document.documentElement.addEventListener('mouseup',function(){
+                dragging = false;
+                svg.removeEventListener('mousemove',move,false);
+        },false);
+    },false);
+
+    volume_slider_1.addEventListener('mousedown',function(evt){
+
+        cHeight = svg.clientHeight
+
+        console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
+        lower_limit = (cHeight*0.16).toFixed(1)
+        upper_limit = (cHeight*0.70).toFixed(1)
+
+        console.log('limits: ', lower_limit + ' | ' + upper_limit);
+
+        var offset = my(evt);
+        dragging = true;
+        offset.y = volume_slider_1.y.baseVal.value - offset.y;
+        var move = function(evt){
+                var now = my(evt);
+                var y = offset.y + now.y;
+
+                console.log(y)
+
+                var limitLower = lower_limit;
+                var limitUpper = upper_limit;
+                if ( y < limitLower || y > limitUpper ) {
+                    return;
+                }           
+
+                vol_1_value = Math.abs((y - lower_limit) / (upper_limit - lower_limit) - 1).toFixed(2)
+                DJ_Set.changeVolume_01_val(vol_1_value)
+
+                volume_slider_1.y.baseVal.value = y;
+        };
+
+        svg.addEventListener('mousemove',move,false);                
+        document.documentElement.addEventListener('mouseup',function(){
+                dragging = false;
+                svg.removeEventListener('mousemove',move,false);
+        },false);
+    },false);
+
+    volume_slider_2.addEventListener('mousedown',function(evt){
+
+        cHeight = svg.clientHeight
+
+        console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
+        lower_limit = (cHeight*0.16).toFixed(1)
+        upper_limit = (cHeight*0.70).toFixed(1)
+
+        console.log('limits: ', lower_limit + ' | ' + upper_limit);
+
+        var offset = my(evt);
+        dragging = true;
+        offset.y = volume_slider_2.y.baseVal.value - offset.y;
+        var move = function(evt){
+                var now = my(evt);
+                var y = offset.y + now.y;
+
+                console.log(y)
+
+                var limitLower = lower_limit;
+                var limitUpper = upper_limit;
+                if ( y < limitLower || y > limitUpper ) {
+                    return;
+                }           
+
+                vol_2_value = Math.abs((y - lower_limit) / (upper_limit - lower_limit) - 1).toFixed(2)
+                console.log(vol_2_value)
+
+                DJ_Set.changeVolume_02_val(vol_2_value)
+                volume_slider_2.y.baseVal.value = y;
+        };
+
+        svg.addEventListener('mousemove',move,false);                
+        document.documentElement.addEventListener('mouseup',function(){
+                dragging = false;
+                svg.removeEventListener('mousemove',move,false);
+        },false);
+    },false);
+
 }
-
-function my(evt){
-    pt.y = evt.clientY;
-    return pt.matrixTransform(svg.getScreenCTM().inverse());
-}
-
-// HTML elements
-var slider_1  = document.querySelector('#crossfade_btn');
-var volume_slider_1  = document.querySelector('#slider_btn_01');
-var volume_slider_2  = document.querySelector('#slider_btn_02');
-
-var dragging = false;
-slider_1.addEventListener('mousedown',function(evt){
-
-    cWidth = svg.clientWidth
-
-    // console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
-    lower_limit = (cWidth*0.33).toFixed(1)
-    upper_limit = (cWidth*0.53).toFixed(1)
-
-    var offset = mx(evt);
-    dragging = true;
-    offset.x = slider_1.x.baseVal.value - offset.x;
-    var move = function(evt){
-            var now = mx(evt);
-            var x = offset.x + now.x;
-
-            var limitLower = lower_limit;
-            var limitUpper = upper_limit;
-            if ( x < limitLower || x > limitUpper ) {
-                return;
-            }           
-
-            crossfade_value = ((x - lower_limit) / (upper_limit - lower_limit)).toFixed(2)
-            DJ_Set.crossfade_val(crossfade_value)
-            slider_1.x.baseVal.value = x;
-    };
-
-    svg.addEventListener('mousemove',move,false);                
-    document.documentElement.addEventListener('mouseup',function(){
-            dragging = false;
-            svg.removeEventListener('mousemove',move,false);
-    },false);
-},false);
-
-volume_slider_1.addEventListener('mousedown',function(evt){
-
-    cHeight = svg.clientHeight
-
-    console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
-    lower_limit = (cHeight*0.16).toFixed(1)
-    upper_limit = (cHeight*0.70).toFixed(1)
-
-    console.log('limits: ', lower_limit + ' | ' + upper_limit);
-
-    var offset = my(evt);
-    dragging = true;
-    offset.y = volume_slider_1.y.baseVal.value - offset.y;
-    var move = function(evt){
-            var now = my(evt);
-            var y = offset.y + now.y;
-
-            console.log(y)
-
-            var limitLower = lower_limit;
-            var limitUpper = upper_limit;
-            if ( y < limitLower || y > limitUpper ) {
-                return;
-            }           
-
-            vol_1_value = Math.abs((y - lower_limit) / (upper_limit - lower_limit) - 1).toFixed(2)
-            DJ_Set.changeVolume_01_val(vol_1_value)
-
-            volume_slider_1.y.baseVal.value = y;
-    };
-
-    svg.addEventListener('mousemove',move,false);                
-    document.documentElement.addEventListener('mouseup',function(){
-            dragging = false;
-            svg.removeEventListener('mousemove',move,false);
-    },false);
-},false);
-
-volume_slider_2.addEventListener('mousedown',function(evt){
-
-    cHeight = svg.clientHeight
-
-    console.log('client', svg.clientWidth + 'x' + svg.clientHeight);
-    lower_limit = (cHeight*0.16).toFixed(1)
-    upper_limit = (cHeight*0.70).toFixed(1)
-
-    console.log('limits: ', lower_limit + ' | ' + upper_limit);
-
-    var offset = my(evt);
-    dragging = true;
-    offset.y = volume_slider_2.y.baseVal.value - offset.y;
-    var move = function(evt){
-            var now = my(evt);
-            var y = offset.y + now.y;
-
-            console.log(y)
-
-            var limitLower = lower_limit;
-            var limitUpper = upper_limit;
-            if ( y < limitLower || y > limitUpper ) {
-                return;
-            }           
-
-            vol_2_value = Math.abs((y - lower_limit) / (upper_limit - lower_limit) - 1).toFixed(2)
-            console.log(vol_2_value)
-
-            DJ_Set.changeVolume_02_val(vol_2_value)
-            volume_slider_2.y.baseVal.value = y;
-    };
-
-    svg.addEventListener('mousemove',move,false);                
-    document.documentElement.addEventListener('mouseup',function(){
-            dragging = false;
-            svg.removeEventListener('mousemove',move,false);
-    },false);
-},false);
-
