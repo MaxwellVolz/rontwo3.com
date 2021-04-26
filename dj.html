@@ -2,113 +2,231 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Ronnie Dunmore and Maxwell Volz">
-    <title>RonTwo3.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Ronnie Dunmore and Maxwell Volz">
+  <title>RonTwo3.com</title>
 
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
 
-    <meta name="theme-color" content="#563d7c">
+  <meta name="theme-color" content="#563d7c">
 
 
-    <style>
-        body {
-            background-image: url("assets/bg.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin:0;
-        }
-        #dj-container{
-            width: 100vw;
-            overflow: hidden;
-            text-align: center;
-            user-select: none;
-            position:absolute;
-            bottom:0
-        }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("assets/bg.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+    }
+
+    #dj-container {
+      width: 100vw;
+      overflow: hidden;
+      text-align: center;
+      user-select: none;
+      position: absolute;
+      bottom: 0
+    }
+
+    /* g#left_record path{
+            transform: rotate(45deg);
+            transform-origin: 50%;
+          } */
+    g#left_record {
+      transform-origin: 186px 191.5px;
+    }
+
+    g#right_record {
+      transform-origin: 838px 191.5px;
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="css/cover.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-    
-    <div id="dj-container">
+  
 
-        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 1024 332"
-            xml:space="preserve">
-            <style>
-                .st0{fill:#444}.st1{fill:#02c6c1}.st2{fill:#0ff}.st7,.st8{fill:#fff;stroke:#fff;stroke-width:3;stroke-miterlimit:10}.st8{fill:none;stroke:#000;stroke-width:4}.st9{fill:#232323}.st10{fill:#ff5050}.st11{fill:#a0a0a0}.st12{fill:none;stroke:#a8a8a8;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10}.st13{fill:#595959}
-              </style>
-              <path class="st0" d="M12 33h1000v299H12z"/>
-              <path class="st1" d="M378 247.4h55.2v55.2H378z"/>
-              <path class="st2" d="M378 237.4h55.2v55.2H378z"/>
-              <path class="st1" d="M590.8 247.4H646v55.2h-55.2z"/>
-              <path class="st2" d="M590.8 237.4H646v55.2h-55.2z"/>
-              <path class="st1" d="M519.9 247.4h55.2v55.2h-55.2z"/>
-              <path class="st2" d="M519.9 237.4h55.2v55.2h-55.2z"/>
-              <path class="st1" d="M448.9 247.4h55.2v55.2h-55.2z"/>
-              <path class="st2" d="M448.9 237.4h55.2v55.2h-55.2z"/>
-              <path d="M378 121.8c.2 8.4 5.1 15.2 11 15.2h115.7c6 0 10.9-6.8 11-15.2 0-12.9 1.9-3.3-15.6-8.2-2.7.1-111.7 1.1-113.8 1.1-8.7 5.4-7.9-5.7-8.3 7.1z" fill="#ff5b00"/>
-              <path d="M378 113.1c.2 8.4 5.1 15.1 11 15.1h115.7c6 0 10.9-6.8 11-15.2-.3-12.8-7.8-23.1-17-23.1-2.7 0-5.3.9-7.5 2.5-2.8-21.3-16-37.5-32-37.5-12 0-22.4 9.2-28.1 22.8-3-2-6.3-3.1-9.9-3.1-8.7 0-16.3 6.8-20.3 16.9-1.9-1-3.9-1.6-6-1.6-9 .1-16.5 10.4-16.9 23.2z" fill="#ff8100"/>
-              <path d="M610 63h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V75c0-6.6-5.4-12-12-12z" fill="#008091"/>
-              <path d="M610 55h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V67c0-6.6-5.4-12-12-12z" fill="#009cb9"/>
-              <path class="st7" d="M570.9 72.8c.1 1.9-1.3 3.4-3.5 3.4-2 0-3.3-1.5-3.3-3.4 0-2 1.5-3.5 3.5-3.5s3.3 1.5 3.3 3.5zm-6.2 39.2V81.4h5.6V112h-5.6zM579.5 89.7c0-3.2-.1-5.8-.2-8.3h4.9l.3 5.1h.1c1.5-2.9 5-5.8 10.1-5.8 4.2 0 10.8 2.5 10.8 13V112H600V94.3c0-4.9-1.8-9-7.1-9-3.7 0-6.5 2.6-7.5 5.7-.2.7-.4 1.6-.4 2.6V112h-5.6l.1-22.3z"/>
-              <path class="st0" d="M12 33v299h1000V33H12zm536 84V67c0-6.6 5.4-12 12-12h50c6.6 0 12 5.4 12 12v58c0 6.6-5.4 12-12 12h-50c-6.6 0-12-5.4-12-12v-8zm-170 91.7v-55.2h55.2v65.2H378v-10zm55.2 83.9v10H378v-65.2h55.2v55.2zm70.9-45.2v55.2h-55.2v-65.2h55.2v10zm0-83.8v55.2h-55.2v-65.2h55.2v10zm11.7-41.8c-.2 8.4-5.1 15.2-11 15.2H389c-6 0-10.8-6.8-11-15.2.1-3.4.1-5.2.2-5.9-.1-.9-.2-1.8-.2-2.8.3-12.8 7.8-23.1 17-23.1 2.1 0 4.1.5 6 1.5 4-10.1 11.6-16.9 20.3-16.9 3.5 0 6.9 1.1 9.8 3.1 5.6-13.6 16.1-22.8 28.1-22.8 15.9 0 29.1 16.1 32 37.5 2.3-1.6 4.8-2.5 7.5-2.5 9.2 0 16.7 10.3 17 23.1 0 .7-.1 1.3-.1 2 .4.8.2 2.6.2 6.8zm59.3 125.6v55.2h-55.2v-65.2h55.2v10zm0-83.8v55.2h-55.2v-65.2h55.2v10zm70.9 83.8v55.2h-55.2v-65.2H646v10zm0-83.8v55.2h-55.2v-65.2H646v10z"/>
-              <path class="st8" d="M358 320V33M666 33v287"/>
+  <div id="dj-container">
 
-              <g id="left_record">
-                <circle class="st9" cx="186" cy="191.5" r="118.7"/>
-                <circle class="st10" cx="186" cy="191.5" r="44.9"/>
-                <circle class="st11" cx="186" cy="191.5" r="5.3"/>
-                <path class="st12" d="M186 86.7c57.9 0 104.8 46.9 104.8 104.8M186 99.1c51 0 92.4 41.4 92.4 92.4M186 111.5c44.2 0 80 35.8 80 80M186 123.9c37.3 0 67.6 30.3 67.6 67.6M186 136.3c30.5 0 55.2 24.7 55.2 55.2"/>
-                <path class="st12" d="M186 296.3c-57.9 0-104.8-46.9-104.8-104.8M186 283.9c-51 0-92.4-41.4-92.4-92.4M186 271.5c-44.2 0-80-35.8-80-80M186 259.1c-37.3 0-67.6-30.3-67.6-67.6M186 246.7c-30.5 0-55.2-24.7-55.2-55.2"/>
-              </g>
+    <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 1024 332"
+      xml:space="preserve">
+      <style>
+        .st0 {
+          fill: #444
+        }
 
-              <g>
-                <path class="st13" d="M44 3.2h282V63H44z"/>
-                <path class="st9" d="M53.1 11.2h263.8V55H53.1z"/>
-              </g>
-              <g>
-                <circle class="st9" cx="838" cy="191.5" r="118.7"/>
-                <circle class="st10" cx="838" cy="191.5" r="44.9"/>
-                <circle class="st11" cx="838" cy="191.5" r="5.3"/>
-                <path class="st12" d="M733.2 191.5c0-57.9 46.9-104.8 104.8-104.8M745.6 191.5c0-51 41.4-92.4 92.4-92.4M758 191.5c0-44.2 35.8-80 80-80M770.4 191.5c0-37.3 30.3-67.6 67.6-67.6M782.8 191.5c0-30.5 24.7-55.2 55.2-55.2"/>
-                <g>
-                  <path class="st12" d="M942.8 191.5c0 57.9-46.9 104.8-104.8 104.8M930.4 191.5c0 51-41.4 92.4-92.4 92.4M918 191.5c0 44.2-35.8 80-80 80M905.6 191.5c0 37.3-30.3 67.6-67.6 67.6M893.2 191.5c0 30.5-24.7 55.2-55.2 55.2"/>
-                </g>
-              </g>
-              <g>
-                <path class="st13" d="M698 3.2h282V63H698z"/>
-                <path class="st9" d="M707.1 11.2h263.8V55H707.1z"/>
-              </g>
-              <path class="st13" d="M12 320h1000v13H12z"/>
-              <g>
-                <path class="st1" d="M378 163.6h55.2v55.2H378z"/>
-                <path class="st2" d="M378 153.6h55.2v55.2H378z"/>
-              </g>
-              <g>
-                <path class="st1" d="M590.8 163.6H646v55.2h-55.2z"/>
-                <path class="st2" d="M590.8 153.6H646v55.2h-55.2z"/>
-              </g>
-              <g>
-                <path class="st1" d="M519.9 163.6h55.2v55.2h-55.2z"/>
-                <path class="st2" d="M519.9 153.6h55.2v55.2h-55.2z"/>
-              </g>
-              <g>
-                <path class="st1" d="M448.9 163.6h55.2v55.2h-55.2z"/>
-                <path class="st2" d="M448.9 153.6h55.2v55.2h-55.2z"/>
-              </g>
-            </svg>
-            
-    </div>
-    <script src="anime.min.js"></script>
-    <script src="scripts/test.js"></script>
+        .st1 {
+          fill: #02c6c1
+        }
+
+        .st2 {
+          fill: #0ff
+        }
+
+        .st7,
+        .st8 {
+          fill: #fff;
+          stroke: #fff;
+          stroke-width: 3;
+          stroke-miterlimit: 10
+        }
+
+        .st8 {
+          fill: none;
+          stroke: #000;
+          stroke-width: 4
+        }
+
+        .st9 {
+          fill: #232323
+        }
+
+        .st10 {
+          fill: #ff5050
+        }
+
+        .st11 {
+          fill: #a0a0a0
+        }
+
+        .st12 {
+          fill: none;
+          stroke: #a8a8a8;
+          stroke-width: 5;
+          stroke-linecap: round;
+          stroke-miterlimit: 10
+        }
+
+        .st13 {
+          fill: #595959
+        }
+      </style>
+      <path class="st0" d="M12 33h1000v299H12z" />
+
+
+      <path class="st7"
+        d="M570.9 72.8c.1 1.9-1.3 3.4-3.5 3.4-2 0-3.3-1.5-3.3-3.4 0-2 1.5-3.5 3.5-3.5s3.3 1.5 3.3 3.5zm-6.2 39.2V81.4h5.6V112h-5.6zM579.5 89.7c0-3.2-.1-5.8-.2-8.3h4.9l.3 5.1h.1c1.5-2.9 5-5.8 10.1-5.8 4.2 0 10.8 2.5 10.8 13V112H600V94.3c0-4.9-1.8-9-7.1-9-3.7 0-6.5 2.6-7.5 5.7-.2.7-.4 1.6-.4 2.6V112h-5.6l.1-22.3z" />
+
+      <g id="button_sc">
+        <path
+          d="M378 121.8c.2 8.4 5.1 15.2 11 15.2h115.7c6 0 10.9-6.8 11-15.2 0-12.9 1.9-3.3-15.6-8.2-2.7.1-111.7 1.1-113.8 1.1-8.7 5.4-7.9-5.7-8.3 7.1z"
+          fill="#ff5b00" />
+        <path
+          d="M378 113.1c.2 8.4 5.1 15.1 11 15.1h115.7c6 0 10.9-6.8 11-15.2-.3-12.8-7.8-23.1-17-23.1-2.7 0-5.3.9-7.5 2.5-2.8-21.3-16-37.5-32-37.5-12 0-22.4 9.2-28.1 22.8-3-2-6.3-3.1-9.9-3.1-8.7 0-16.3 6.8-20.3 16.9-1.9-1-3.9-1.6-6-1.6-9 .1-16.5 10.4-16.9 23.2z"
+          fill="#ff8100" />
+      </g>
+      <g id="button_li">
+
+        <path d="M610 63h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V75c0-6.6-5.4-12-12-12z"
+          fill="#008091" />
+        <path d="M610 55h-50c-6.6 0-12 5.4-12 12v50c0 6.6 5.4 12 12 12h50c6.6 0 12-5.4 12-12V67c0-6.6-5.4-12-12-12z"
+          fill="#009cb9" />
+      </g>
+      <g id="button_1">
+        <path class="st1" d="M378 163.6h55.2v55.2H378z" />
+        <path class="st2" d="M378 153.6h55.2v55.2H378z" />
+      </g>
+      <g id="button_2">
+        <path class="st1" d="M448.9 163.6h55.2v55.2h-55.2z" />
+        <path class="st2" d="M448.9 153.6h55.2v55.2h-55.2z" />
+      </g>
+      <g id="button_3">
+        <path class="st1" d="M519.9 163.6h55.2v55.2h-55.2z" />
+        <path class="st2" d="M519.9 153.6h55.2v55.2h-55.2z" />
+      </g>
+      <g id="button_4">
+        <path class="st1" d="M590.8 163.6H646v55.2h-55.2z" />
+        <path class="st2" d="M590.8 153.6H646v55.2h-55.2z" />
+      </g>
+
+      <g id="button_5">
+        <path class="st1" d="M378 247.4h55.2v55.2H378z" />
+        <path class="st2" d="M378 237.4h55.2v55.2H378z" />
+      </g>
+      <g id="button_6">
+        <path class="st1" d="M448.9 247.4h55.2v55.2h-55.2z" />
+        <path class="st2" d="M448.9 237.4h55.2v55.2h-55.2z" />
+      </g>
+      <g id="button_7">
+        <path class="st1" d="M519.9 247.4h55.2v55.2h-55.2z" />
+        <path class="st2" d="M519.9 237.4h55.2v55.2h-55.2z" />
+      </g>
+      <g id="button_8">
+        <path class="st1" d="M590.8 247.4H646v55.2h-55.2z" />
+        <path class="st2" d="M590.8 237.4H646v55.2h-55.2z" />
+      </g>
+
+      <path class="st0"
+        d="M12 33v299h1000V33H12zm536 84V67c0-6.6 5.4-12 12-12h50c6.6 0 12 5.4 12 12v58c0 6.6-5.4 12-12 12h-50c-6.6 0-12-5.4-12-12v-8zm-170 91.7v-55.2h55.2v65.2H378v-10zm55.2 83.9v10H378v-65.2h55.2v55.2zm70.9-45.2v55.2h-55.2v-65.2h55.2v10zm0-83.8v55.2h-55.2v-65.2h55.2v10zm11.7-41.8c-.2 8.4-5.1 15.2-11 15.2H389c-6 0-10.8-6.8-11-15.2.1-3.4.1-5.2.2-5.9-.1-.9-.2-1.8-.2-2.8.3-12.8 7.8-23.1 17-23.1 2.1 0 4.1.5 6 1.5 4-10.1 11.6-16.9 20.3-16.9 3.5 0 6.9 1.1 9.8 3.1 5.6-13.6 16.1-22.8 28.1-22.8 15.9 0 29.1 16.1 32 37.5 2.3-1.6 4.8-2.5 7.5-2.5 9.2 0 16.7 10.3 17 23.1 0 .7-.1 1.3-.1 2 .4.8.2 2.6.2 6.8zm59.3 125.6v55.2h-55.2v-65.2h55.2v10zm0-83.8v55.2h-55.2v-65.2h55.2v10zm70.9 83.8v55.2h-55.2v-65.2H646v10zm0-83.8v55.2h-55.2v-65.2H646v10z" />
+      <path class="st8" d="M358 320V33M666 33v287" />
+
+      <g id="left_record">
+        <circle class="st9" cx="186" cy="191.5" r="118.7" />
+        <circle class="st10" cx="186" cy="191.5" r="44.9" />
+        <circle class="st11" cx="186" cy="191.5" r="5.3" />
+        <path class="st12"
+          d="M186 86.7c57.9 0 104.8 46.9 104.8 104.8M186 99.1c51 0 92.4 41.4 92.4 92.4M186 111.5c44.2 0 80 35.8 80 80M186 123.9c37.3 0 67.6 30.3 67.6 67.6M186 136.3c30.5 0 55.2 24.7 55.2 55.2" />
+        <path class="st12"
+          d="M186 296.3c-57.9 0-104.8-46.9-104.8-104.8M186 283.9c-51 0-92.4-41.4-92.4-92.4M186 271.5c-44.2 0-80-35.8-80-80M186 259.1c-37.3 0-67.6-30.3-67.6-67.6M186 246.7c-30.5 0-55.2-24.7-55.2-55.2" />
+      </g>
+
+      <g id="left_screen">
+        <path class="st13" d="M44 3.2h282V63H44z" />
+        <path class="st9" d="M53.1 11.2h263.8V55H53.1z" />
+        <foreignObject x="52.2" y="11.5" height="43" width="264" d="M53.1 11.2h263.8V55H53.1z">
+          <div style="position:relative;">
+
+            <canvas id="oscilloscope" height="43" width="264"></canvas>
+
+          </div>
+        </foreignObject>
+      </g>
+      <g id="right_record">
+        <circle class="st9" cx="838" cy="191.5" r="118.7" />
+        <circle class="st10" cx="838" cy="191.5" r="44.9" />
+        <circle class="st11" cx="838" cy="191.5" r="5.3" />
+        <path class="st12"
+          d="M733.2 191.5c0-57.9 46.9-104.8 104.8-104.8M745.6 191.5c0-51 41.4-92.4 92.4-92.4M758 191.5c0-44.2 35.8-80 80-80M770.4 191.5c0-37.3 30.3-67.6 67.6-67.6M782.8 191.5c0-30.5 24.7-55.2 55.2-55.2" />
+        <path class="st12"
+          d="M942.8 191.5c0 57.9-46.9 104.8-104.8 104.8M930.4 191.5c0 51-41.4 92.4-92.4 92.4M918 191.5c0 44.2-35.8 80-80 80M905.6 191.5c0 37.3-30.3 67.6-67.6 67.6M893.2 191.5c0 30.5-24.7 55.2-55.2 55.2" />
+      </g>
+      <g id="right_screen">
+        <path class="st13" d="M698 3.2h282V63H698z" />
+        <path class="st9" d="M707.1 11.2h263.8V55H707.1z" />
+        <foreignObject x="707" y="11.5" height="43" width="264.2" d="M53.1 11.2h263.8V55H53.1z">
+          <div style="position:relative;">
+
+            <canvas id="oscilloscope2" height="43" width="264.2"></canvas>
+
+          </div>
+        </foreignObject>
+      </g>
+      <path class="st13" d="M12 320h1000v13H12z" />
+
+
+    </svg>
+
+  <audio id="track1" src="sounds/Nomyn - Dreamcatcher.mp3"></audio>
+  <audio id="track2" src="sounds/Nomyn - Forever.mp3"></audio>
+
+  <audio id="sfx1" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx2" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx3" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx4" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx5" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx6" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx7" src="sounds/mlg-airhorn.mp3"></audio>
+  <audio id="sfx8" src="sounds/mlg-airhorn.mp3"></audio>
+
+  </div>
+  <script src="anime.min.js"></script>
+  <script src="scripts/test.js"></script>
 
 </body>
 
