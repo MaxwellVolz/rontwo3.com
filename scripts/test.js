@@ -337,6 +337,9 @@ function draw2() {
 
   analyser2.getByteTimeDomainData(dataArray2);
 
+  // console.log("draw2 call")
+  // console.log(dataArray2)
+
   canvasCtx2.fillStyle = "rgb(31, 31, 31)";
   canvasCtx2.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -421,3 +424,30 @@ draw2();
 // }
 
 // draw2();
+
+
+Ui.Demo = function() {
+
+};
+
+Ui.Demo.prototype = Object.create(Ui.prototype);
+
+Ui.Demo.prototype.createElement = function() {
+  "use strict";
+  Ui.prototype.createElement.apply(this, arguments);
+  this.addComponent(new Ui.Pointer({
+    type: 'Rect',
+    pointerWidth: 3,
+    pointerHeight: this.width / 5,
+    offset: this.width / 2 - this.width / 3.3 - this.width / 10
+  }));
+
+  this.addComponent(new Ui.Scale(this.merge(this.options, {
+    drawScale: false,
+    drawDial: true,
+    radius: this.width/2.6})));
+
+  var circle = new Ui.El.Circle(this.width / 3.3, this.width / 2, this.height / 2);
+  this.el.node.appendChild(circle.node);
+  this.el.node.setAttribute("class", "Demo");
+};

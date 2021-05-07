@@ -44,15 +44,66 @@
     g#right_record {
       transform-origin: 838px 191.5px;
     }
+
+    input.slider {
+      -webkit-appearance: slider-vertical;
+      height: 200px;
+      width: 40px;
+      border-radius: 5px;  
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    input.slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%; 
+      background: #04AA6D;
+      cursor: pointer;
+    }
+
+    .Demo rect { fill: #57C7B6; }
+
+    .Demo g polygon { opacity: 1; }
+
+    .Demo circle {
+      fill: #256058;
+      stroke: #57C7B6;
+      stroke-width: 2;
+      filter: url(#dropshadow);
+    }
+
+    .Demo text {
+      font-size: 10px;
+      fill: #57C7B6;
+      font-family: sans-serif;
+      font-weight: 300;
+      -webkit-transition: all .1s ease-in-out;
+    }
+
+    .Demo text.active {
+      font-size: 15px;
+      -webkit-transition: all .3s ease-in-out;
+    }
   </style>
   <!-- Custom styles for this template -->
   <link href="css/cover.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-  
+
 
   <div id="dj-container">
+    <input class="demo" type="range" min="0" max="100"
+        data-width="100" 
+        data-height="100" 
+        data-angleOffset="220"
+        data-angleRange="280"
+        >
 
     <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 1024 332"
       xml:space="preserve">
@@ -175,6 +226,18 @@
         <path class="st12"
           d="M186 296.3c-57.9 0-104.8-46.9-104.8-104.8M186 283.9c-51 0-92.4-41.4-92.4-92.4M186 271.5c-44.2 0-80-35.8-80-80M186 259.1c-37.3 0-67.6-30.3-67.6-67.6M186 246.7c-30.5 0-55.2-24.7-55.2-55.2" />
       </g>
+      <foreignObject x="290" y="90" height="200" width="80" d="M53.1 11.2h263.8V55H53.1z">
+        <input type="range" min="1" height="180" width="180" max="100" value="50" class="slider" id="leftSlider">
+      </foreignObject>
+
+      <foreignObject x="100" y="100" height="100" width="100" d="M53.1 11.2h263.8V55H53.1z">
+        <input class="demo" type="range" min="0" max="100"
+        data-width="100" 
+        data-height="100" 
+        data-angleOffset="220"
+        data-angleRange="280"
+        >
+    </foreignObject>
 
       <g id="left_screen">
         <path class="st13" d="M44 3.2h282V63H44z" />
@@ -196,6 +259,10 @@
         <path class="st12"
           d="M942.8 191.5c0 57.9-46.9 104.8-104.8 104.8M930.4 191.5c0 51-41.4 92.4-92.4 92.4M918 191.5c0 44.2-35.8 80-80 80M905.6 191.5c0 37.3-30.3 67.6-67.6 67.6M893.2 191.5c0 30.5-24.7 55.2-55.2 55.2" />
       </g>
+      <foreignObject x="654" y="90" height="200" width="80" d="M53.1 11.2h263.8V55H53.1z">
+        <input type="range" min="1" height="180" width="180" max="100" value="50" class="slider" id="rightSlider">
+      </foreignObject>
+
       <g id="right_screen">
         <path class="st13" d="M698 3.2h282V63H698z" />
         <path class="st9" d="M707.1 11.2h263.8V55H707.1z" />
@@ -212,20 +279,21 @@
 
     </svg>
 
-  <audio id="track1" src="sounds/Nomyn - Dreamcatcher.mp3"></audio>
-  <audio id="track2" src="sounds/Nomyn - Forever.mp3"></audio>
+    <audio id="track1" src="sounds/Nomyn - Dreamcatcher.mp3"></audio>
+    <audio id="track2" src="sounds/Nomyn - Forever.mp3"></audio>
 
-  <audio id="sfx1" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx2" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx3" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx4" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx5" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx6" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx7" src="sounds/mlg-airhorn.mp3"></audio>
-  <audio id="sfx8" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx1" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx2" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx3" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx4" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx5" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx6" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx7" src="sounds/mlg-airhorn.mp3"></audio>
+    <audio id="sfx8" src="sounds/mlg-airhorn.mp3"></audio>
 
   </div>
   <script src="anime.min.js"></script>
+  <script src="js/knob-min.js"></script>
   <script src="scripts/test.js"></script>
 
 </body>
