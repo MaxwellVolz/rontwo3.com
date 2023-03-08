@@ -49,6 +49,7 @@ import SwipeIcon from '@mui/icons-material/Swipe';
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 
 // Models
+import MusicBlock from './components/MusicBlock'
 
 import { Water } from 'three-stdlib'
 
@@ -60,6 +61,7 @@ export default function App() {
 
 
   const [camera_focus, setFocus] = useState("0");
+
 
   return (
     <div className='full_vh'>
@@ -77,10 +79,9 @@ export default function App() {
             <Bounds fit clip observe damping={6} margin={1.2}>
               <SelectToZoom>
 
-                <mesh>
-                  <boxGeometry args={[2, 2, 2]} />
+                <MusicBlock />
 
-                </mesh>
+
 
                 {/* Select to Zoom Elements */}
 
