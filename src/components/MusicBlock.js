@@ -8,17 +8,38 @@ import music_mp3 from '../audio/Nomyn-Forever.mp3'
 export default function MusicBlock(props) {
     const group = useRef();
     const logo_ref = useRef();
+    const mesh_ref = useRef();
 
     // Initialize Audio
     let audio1 = new Audio();
-    audio1.src = music_mp3;
+
+    // Web Audio API
+    let audioSource = null;
+
+    let audioCtx = null;
+    let analyser = null;
+
 
     let music_started = false;
-    let analyser = null;
 
 
     useFrame(({ clock }) => {
         const a = clock.getElapsedTime();
+
+        if (music_started) {
+            analyser.fftSize = 32;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            // console.log(analyser)
+            analyser.getByteFrequencyData(dataArray)
+            // console.log(dataArray)
+
+            console.log(dataArray[0])
+
+            mesh_ref.current.scale.y = dataArray[0] / 100;
+
+        }
         // mesh_ref.current.rotation.y = a;
         // easing.dampE(logo_ref.current.rotation, [0, state.pointer.x * (state.camera.position.z > 1 ? 1 : -1), 0], 0.4, delta)
     })
@@ -33,14 +54,14 @@ export default function MusicBlock(props) {
     }
 
     function web_audio_setup() {
-        // Web Audio API
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        let audioSource = null;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioCtx.createAnalyser();
+
+        audio1.src = music_mp3;
 
         audio1.play();
 
         audioSource = audioCtx.createMediaElementSource(audio1);
-        analyser = audioCtx.createAnalyser();
         audioSource.connect(analyser);
         analyser.connect(audioCtx.destination);
     }
@@ -48,7 +69,7 @@ export default function MusicBlock(props) {
 
     return (
         <group {...props} ref={logo_ref} dispose={null} rotation={[0, 0, 0]} scale={4} onClick={handleClick} >
-            <mesh>
+            <mesh ref={mesh_ref}>
                 <boxGeometry args={[2, 2, 2]} />
             </mesh>
         </group>
