@@ -12,12 +12,12 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 
 
-container.addEventListener("click", hmm)
+container.addEventListener("click", page_click)
 // audio1.play();
 
 let started = false;
 
-function hmm() {
+function page_click() {
 
     if (!started) {
         console.log("started...")
