@@ -1,6 +1,7 @@
 
 import { useRef, Suspense } from 'react';
 import { useLoader, useFrame } from '@react-three/fiber';
+import * as THREE from 'three'
 
 import music_mp3 from '../audio/Nomyn-Forever.mp3'
 
@@ -23,13 +24,22 @@ function generateCirclePoints(X) {
     return points;
 }
 
+function heightToColor(X) {
+    const red = X / 10;
+    const green = X * 4;
+    const blue = X / 4;
+    // ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+
+    return new THREE.Color(`rgb(${red}, ${green}, ${blue})`);
+}
+
 export default function MusicBlock(props) {
     const group = useRef();
     const logo_ref = useRef();
 
     let block_amount = 13
-    // const music_block_positions = generateMusicBoxPositions(block_amount)
-    const music_block_positions = generateCirclePoints(block_amount)
+    const music_block_positions = generateMusicBoxPositions(block_amount)
+    // const music_block_positions = generateCirclePoints(block_amount)
     console.log(music_block_positions)
     const music_block_refs = useRef(new Array())
 
@@ -54,13 +64,17 @@ export default function MusicBlock(props) {
             const bufferLength = analyser.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
             // console.log(analyser)
+            let music_block_colors = dataArray.map(heightToColor)
+
+            // console.log(music_block_colors)
 
             analyser.getByteFrequencyData(dataArray)
 
             // music_block_refs.current[0].scale.y = dataArray[0] / 100;
 
             for (let i = 0; i < block_amount; i++) {
-                music_block_refs.current[i].scale.y = dataArray[i] / 100;
+                music_block_refs.current[i].scale.y = (dataArray[i] / 100) + 0.01;
+                music_block_refs.current[i].material.color = { 'isColor': true, 'r': 0, 'g': 1, 'b': 0 }
             }
 
         }
@@ -75,6 +89,7 @@ export default function MusicBlock(props) {
             console.log("kick it")
             web_audio_setup()
         }
+        console.log(music_block_refs.current[0])
     }
 
     function web_audio_setup() {
@@ -99,6 +114,8 @@ export default function MusicBlock(props) {
                 return (
                     <mesh key={item.i_pos} ref={getRef} position={item.position}>
                         <boxGeometry args={[2, 2, 2]} />
+                        {/* <meshNormalMaterial /> */}
+                        <meshStandardMaterial color={new THREE.Color(1, 0, 0)} />
                     </mesh>)
             })}
 
