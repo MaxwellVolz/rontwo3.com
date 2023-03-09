@@ -12,20 +12,24 @@ function generateMusicBoxPositions(len) {
     return arr;
 }
 
+function generateCirclePoints(X) {
+    const points = [];
+    for (let i = 0; i < X; i++) {
+        const angle = 2 * Math.PI * i / X;
+        const x = Math.cos(angle) * 5;
+        const z = Math.sin(angle) * 5;
+        points.push({ 'i_pos': i, 'position': [x, 0, z] });
+    }
+    return points;
+}
+
 export default function MusicBlock(props) {
     const group = useRef();
     const logo_ref = useRef();
-    const mesh_ref = useRef();
-
-    const mesh_0 = useRef();
-    const mesh_1 = useRef();
-    const mesh_2 = useRef();
-    const mesh_3 = useRef();
-    const mesh_5 = useRef();
-    const mesh_6 = useRef();
 
     let block_amount = 13
-    const music_block_positions = generateMusicBoxPositions(block_amount)
+    // const music_block_positions = generateMusicBoxPositions(block_amount)
+    const music_block_positions = generateCirclePoints(block_amount)
     console.log(music_block_positions)
     const music_block_refs = useRef(new Array())
 
@@ -49,17 +53,9 @@ export default function MusicBlock(props) {
             analyser.fftSize = 64;
             const bufferLength = analyser.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
-
             // console.log(analyser)
+
             analyser.getByteFrequencyData(dataArray)
-            // console.log(dataArray)
-
-            // console.log(dataArray[0])
-
-            mesh_0.current.scale.y = dataArray[0] / 100;
-            mesh_1.current.scale.y = dataArray[1] / 100;
-            mesh_2.current.scale.y = dataArray[2] / 100;
-            mesh_3.current.scale.y = dataArray[3] / 100;
 
             // music_block_refs.current[0].scale.y = dataArray[0] / 100;
 
@@ -106,29 +102,6 @@ export default function MusicBlock(props) {
                     </mesh>)
             })}
 
-            <mesh ref={mesh_0}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
-
-            <mesh ref={mesh_1}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
-
-            <mesh ref={mesh_2} position={[2, 0, 0]}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
-
-            <mesh ref={mesh_2} position={[-2, 0, 0]}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
-
-            <mesh ref={mesh_3} position={[4, 0, 0]}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
-
-            <mesh ref={mesh_3} position={[-4, 0, 0]}>
-                <boxGeometry args={[2, 2, 2]} />
-            </mesh>
         </group>
     );
 }
