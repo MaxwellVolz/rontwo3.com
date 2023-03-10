@@ -77,15 +77,11 @@ export default function App() {
 
           <Suspense fallback={null}>
             <Bounds fit clip observe damping={6} margin={1.2}>
-              <SelectToZoom>
+              {/* <SelectToZoom> */}
 
-                <MusicBlock />
+              <MusicBlock />
 
-
-
-                {/* Select to Zoom Elements */}
-
-              </SelectToZoom>
+              {/* </SelectToZoom> */}
             </Bounds>
             <ContactShadows rotation-x={Math.PI / 2} position={[0, -35, 0]} opacity={0.2} width={200} height={200} blur={1} far={50} />
           </Suspense>

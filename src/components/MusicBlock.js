@@ -3,12 +3,13 @@ import { useRef, Suspense } from 'react';
 import { useLoader, useFrame } from '@react-three/fiber';
 import * as THREE from 'three'
 
-import music_mp3 from '../audio/Nomyn-Forever.mp3'
+// import music_mp3 from '../audio/Nomyn-Forever.mp3'
+import music_mp3 from '../audio/RonTwo 3 - Citrus Grove Collective Vol. 4 - Digi Redo.mp3'
 
 function generateMusicBoxPositions(len) {
     const arr = [];
     for (let i = -Math.floor(len / 2); i <= Math.floor(len / 2); i++) {
-        arr.push({ 'i_pos': i, 'position': [i, 0, 3] });
+        arr.push({ 'i_pos': i, 'position': [i * 3, 0, 3] });
     }
     return arr;
 }
@@ -19,7 +20,7 @@ function generateCirclePoints(X) {
         const angle = 2 * Math.PI * i / X;
         const x = Math.cos(angle) * 5;
         const z = Math.sin(angle) * 5;
-        points.push({ 'i_pos': i, 'position': [x, 0, z] });
+        points.push({ 'i_pos': i, 'position': [x * 3, 0, z * 3] });
     }
     return points;
 }
@@ -37,9 +38,9 @@ export default function MusicBlock(props) {
     const group = useRef();
     const logo_ref = useRef();
 
-    let block_amount = 13
-    const music_block_positions = generateMusicBoxPositions(block_amount)
-    // const music_block_positions = generateCirclePoints(block_amount)
+    let block_amount = 51
+    // const music_block_positions = generateMusicBoxPositions(block_amount)
+    const music_block_positions = generateCirclePoints(block_amount)
     console.log(music_block_positions)
     const music_block_refs = useRef(new Array())
 
@@ -60,7 +61,7 @@ export default function MusicBlock(props) {
         const a = clock.getElapsedTime();
 
         if (music_started) {
-            analyser.fftSize = 64;
+            analyser.fftSize = 128;
             const bufferLength = analyser.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
             // console.log(analyser)
@@ -73,8 +74,16 @@ export default function MusicBlock(props) {
             // music_block_refs.current[0].scale.y = dataArray[0] / 100;
 
             for (let i = 0; i < block_amount; i++) {
-                music_block_refs.current[i].scale.y = (dataArray[i] / 100) + 0.01;
-                music_block_refs.current[i].material.color = { 'isColor': true, 'r': 0, 'g': 1, 'b': 0 }
+                let freq = dataArray[i]
+                music_block_refs.current[i].scale.y = (freq / 10) + 0.1;
+
+                let freq2 = dataArray[i] / 255;
+
+                let r = (freq2 * i) / 10;
+                let g = i / 4;
+                let b = freq2 / 2;
+
+                music_block_refs.current[i].material.color = { 'isColor': true, 'r': r, 'g': g, 'b': b }
             }
 
         }
