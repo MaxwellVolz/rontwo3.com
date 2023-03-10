@@ -3,19 +3,19 @@ import { useControls } from 'leva';
 import { Canvas, useLoader, useFrame, useThree, extend } from '@react-three/fiber';
 import { Vector3 } from 'three'
 import {
-  AccumulativeShadows,
-  RandomizedLight,
-  Center,
-  Environment,
-  OrbitControls,
-  SpotLight,
-  Lightformer,
-  useDepthBuffer,
-  MeshReflectorMaterial,
-  ScrollControls,
-  Sky,
-  useScroll,
-  Bounds, useBounds, ContactShadows
+	AccumulativeShadows,
+	RandomizedLight,
+	Center,
+	Environment,
+	OrbitControls,
+	SpotLight,
+	Lightformer,
+	useDepthBuffer,
+	MeshReflectorMaterial,
+	ScrollControls,
+	Sky,
+	useScroll,
+	Bounds, useBounds, ContactShadows
 } from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper'
@@ -51,8 +51,9 @@ import TouchAppIcon from '@mui/icons-material/TouchApp';
 // Models
 import MusicBlock from './components/MusicBlock'
 
-import { Water } from 'three-stdlib'
+// GUI
 
+import { Water } from 'three-stdlib'
 extend({ Water })
 
 
@@ -60,54 +61,69 @@ extend({ Water })
 export default function App() {
 
 
-  const [camera_focus, setFocus] = useState("0");
+	const [camera_focus, setFocus] = useState("0");
 
 
-  return (
-    <div className='full_vh'>
-      <Canvas shadows flat dpr={[1, 2]}>
-        <ambientLight intensity={0.125} />
+	const color = useControls({
+		value: 'purple',
+	})
 
-        <OrbitControls autoRotate={false} enableZoom={true} makeDefault minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 2.1} />
-
-        <pointLight position={[100, 100, 100]} intensity={.2} />
-
-        <color attach="background" args={['black']} onClick={() => setFocus(4)} />
-        <group position={[0, 0, 0]}>
-
-          <Suspense fallback={null}>
-            <Bounds fit clip observe damping={6} margin={1.2}>
-              {/* <SelectToZoom> */}
-
-              <MusicBlock />
-
-              {/* </SelectToZoom> */}
-            </Bounds>
-            <ContactShadows rotation-x={Math.PI / 2} position={[0, -35, 0]} opacity={0.2} width={200} height={200} blur={1} far={50} />
-          </Suspense>
+	const block_options = useControls({
+		amount: {
+			value: 51, min: 1, max: 100, step: 1
+		},
+		visible: true,
+		color: { value: 'orange' },
+	})
 
 
+	return (
+		<div className='full_vh'>
 
+			<Canvas shadows flat dpr={[1, 2]}>
+				<color attach="background" args={[color.value]} />
+				<ambientLight intensity={0.125} />
 
-          <pointLight position={[5, 10, 5]} intensity={.8} />
+				<OrbitControls autoRotate={false} enableZoom={true} makeDefault minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 2.1} />
 
-        </group>
+				<pointLight position={[100, 100, 100]} intensity={.2} />
 
-      </Canvas>
+				{/* <color attach="background" args={['black']} onClick={() => setFocus(4)} /> */}
+				<group position={[0, 0, 0]}>
 
-    </div>
+					<Suspense fallback={null}>
+						<Bounds fit clip observe damping={6} margin={1.2}>
+							{/* <SelectToZoom> */}
 
-  )
+							<MusicBlock
+								amount={block_options.amount}
+								visible={block_options.visible}
+								color={block_options.color}
+							/>
+
+							{/* </SelectToZoom> */}
+						</Bounds>
+						<ContactShadows rotation-x={Math.PI / 2} position={[0, -35, 0]} opacity={0.2} width={200} height={200} blur={1} far={50} />
+					</Suspense>
+					<pointLight position={[5, 10, 5]} intensity={.8} />
+
+				</group>
+
+			</Canvas>
+
+		</div>
+
+	)
 }
 
 
 // This component wraps children in a group with a click handler
 // Clicking any object will refresh and fit bounds
 function SelectToZoom({ children }) {
-  const api = useBounds()
-  return (
-    <group onClick={(e) => (e.stopPropagation(), e.delta <= 2 && api.refresh(e.object).fit())} onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}>
-      {children}
-    </group>
-  )
+	const api = useBounds()
+	return (
+		<group onClick={(e) => (e.stopPropagation(), e.delta <= 2 && api.refresh(e.object).fit())} onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}>
+			{children}
+		</group>
+	)
 }

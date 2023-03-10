@@ -1,6 +1,32 @@
+
+
+# Rontwo3: Now in 3D
+
+
+## TODO
+
+- interacting with mesh should disable animation on that mesh for X seconds
+- timeline based transitions
+- options panel
+- frequency patterns:
+    - right to left - done
+    - left to right
+    - pyramid
+    - scattered
+- color patterns
+    - black to white
+    - rainbow
+    - sepia
+- block patterns:
+    - transition between
+    - star
+    - blocks become orbs
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
